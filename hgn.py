@@ -52,8 +52,8 @@ class HGN(tf.keras.models.Model):
 
         return hnn
 
-    def __call__(self, _x):
-        height, width, channels, seq_length = _x.shape
+    def __call__(self, _x, training=False):
+        _, height, width, channels, seq_length = _x.shape
         x = tf.reshape(_x, [1, height, width, channels * seq_length]) # concat alongside channels
         
         channels_concatenated = channels * seq_length
@@ -78,6 +78,7 @@ class HGN(tf.keras.models.Model):
         reconstructions = [self.DECODER(q)]
 
         for _ in range(1, channels_concatenated // channels):
+            # leap-frog update
             p_updated = p - self.dt / 2 * dHdq
             q_updated = q + self.dt * p_updated
             reconstructions.append(self.DECODER(q_updated))

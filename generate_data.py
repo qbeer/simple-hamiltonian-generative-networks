@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import odeint
 from skimage.draw import circle
 
-def mass_spring_system(energy_low, energy_high, n_rollouts=10, span=50):
+def mass_spring_system(energy_low, energy_high, n_rollouts, span=50):
     trajectory_size = 300
     trajectories = np.zeros(shape=(n_rollouts, trajectory_size, 2))
     for i in range(n_rollouts):
@@ -14,7 +14,7 @@ def mass_spring_system(energy_low, energy_high, n_rollouts=10, span=50):
         p = r * np.sin(phi)
         sol = odeint(mass_spring_diff_eq, y0=[x, p], t = np.linspace(0, span, trajectory_size))
         # adding random noise to the trajectory
-        trajectories[i, ...] += sol
+        trajectories[i, ...] += sol + np.random.randn(*sol.shape) * 0.01
     return trajectories
         
 
@@ -28,9 +28,9 @@ class DataGenerator:
         self.data_gen = self.DATASETS[dataset_name]
         self.energy_range = energy_range
     
-    def get_dataset(self, size = 64):
+    def get_dataset(self, n_rollouts=10, size = 64):
         
-        trajectories = mass_spring_system(self.energy_range[0], self.energy_range[1])
+        trajectories = mass_spring_system(self.energy_range[0], self.energy_range[1], n_rollouts=n_rollouts)
 
         images = self._convert_to_images(trajectories, size)
 

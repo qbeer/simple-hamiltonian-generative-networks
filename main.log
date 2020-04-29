@@ -1,0 +1,40 @@
+2020-04-29 11:29:51.551487: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu:/usr/local/cuda-10.0/lib64:/usr/local/lib/:/usr/lib/x86_64-linux-gnu:/usr/local/cuda-10.0/lib64:/usr/local/lib/
+2020-04-29 11:29:51.551603: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/lib/x86_64-linux-gnu:/usr/local/cuda-10.0/lib64:/usr/local/lib/:/usr/lib/x86_64-linux-gnu:/usr/local/cuda-10.0/lib64:/usr/local/lib/
+2020-04-29 11:29:51.551614: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+ffmpeg version 4.0 Copyright (c) 2000-2018 the FFmpeg developers
+  built with gcc 7.2.0 (crosstool-NG fa8859cb)
+  configuration: --prefix=/home/qbeer/.conda/envs/detectron2 --cc=/opt/conda/conda-bld/ffmpeg_1531088893642/_build_env/bin/x86_64-conda_cos6-linux-gnu-cc --disable-doc --enable-shared --enable-static --enable-zlib --enable-pic --enable-gpl --enable-version3 --disable-nonfree --enable-hardcoded-tables --enable-avresample --enable-libfreetype --disable-openssl --disable-gnutls --enable-libvpx --enable-pthreads --enable-libopus --enable-postproc --disable-libx264
+  libavutil      56. 14.100 / 56. 14.100
+  libavcodec     58. 18.100 / 58. 18.100
+  libavformat    58. 12.100 / 58. 12.100
+  libavdevice    58.  3.100 / 58.  3.100
+  libavfilter     7. 16.100 /  7. 16.100
+  libavresample   4.  0.  0 /  4.  0.  0
+  libswscale      5.  1.100 /  5.  1.100
+  libswresample   3.  1.100 /  3.  1.100
+  libpostproc    55.  1.100 / 55.  1.100
+Input #0, image2, from '%d.png':
+  Duration: 00:00:03.60, start: 0.000000, bitrate: N/A
+    Stream #0:0: Video: png, rgba(pc), 640x480 [SAR 3937:3937 DAR 4:3], 25 fps, 25 tbr, 25 tbn, 25 tbc
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> mpeg4 (native))
+Press [q] to stop, [?] for help
+Output #0, mp4, to 'movie.mp4':
+  Metadata:
+    encoder         : Lavf58.12.100
+    Stream #0:0: Video: mpeg4 (mp4v / 0x7634706D), yuv420p, 640x480 [SAR 1:1 DAR 4:3], q=2-31, 200 kb/s, 30 fps, 15360 tbn, 30 tbc
+    Metadata:
+      encoder         : Lavc58.18.100 mpeg4
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/200000 buffer size: 0 vbv_delay: -1
+frame=   90 fps=0.0 q=2.0 Lsize=     130kB time=00:00:02.96 bitrate= 360.1kbits/s speed=18.2x    
+video:129kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.956254%
+2020-04-29 11:30:17.321932: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-04-29 11:30:17.322775: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2020-04-29 11:30:17.322808: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (pinkpanther): /proc/driver/nvidia/version does not exist
+2020-04-29 11:30:17.323021: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-04-29 11:30:17.348078: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3199945000 Hz
+2020-04-29 11:30:17.348401: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x564cbb70d230 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-04-29 11:30:17.348431: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-04-29 11:30:28.717674: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 3317760000 exceeds 10% of system memory.
+2020-04-29 11:30:30.105862: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 3317760000 exceeds 10% of system memory.
